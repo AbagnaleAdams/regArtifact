@@ -41,14 +41,14 @@ stages:
       inputs:
         connectedServiceName: 'dev271065-Dev271065-ServiceNow DevOps Service Connection'
         artifactsPayload: |
-          "artifacts": [
+          "artifacts": 
                 {
                    "name": "app-devops-cicd.jar",
                    "version": "1.$(build.buildId)",
                    "semanticVersion": "1.$(build.buildId).0",
                    "repositoryName": "AbagnaleAdams/regArtifact"
                 }
-             ],
+             #],
              #"pipelineName": "$(system.teamProject)/$(build.definitionName)",
              #"taskExecutionNumber": "$(build.buildId)",
              #"stageName": "$(system.jobDisplayName)",
