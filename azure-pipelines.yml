@@ -1,4 +1,5 @@
 trigger: none
+
 pool:
   vmImage: ubuntu-latest
 stages:
@@ -34,56 +35,15 @@ stages:
   jobs:
   - job: Register_Artifact
     pool:
-      name: server
+      vmImage: ubuntu-latest
     steps:
-    - task: ServiceNow-DevOps-Server-Artifact-Registration@1
+    - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
       inputs:
         connectedServiceName: 'dev271065-Dev271065-ServiceNow DevOps Service Connection'
-        artifactRegistrationPayload: |
+        artifactsPayload: |
           {
-             "artifacts": [
-                {
-                   "name": "app-devops-cicd.jar",
-                   "version": "1.$(build.buildId)",
-                   "semanticVersion": "1.$(build.buildId).0",
-                   "repositoryName": "regArtifact"
-             "pipelineName": "$(system.teamProject)/$(build.definitionName)",
-             "taskExecutionNumber": "$(build.buildId)",
-             "stageName": "$(system.jobDisplayName)",
-           "attemptNumber": "$(system.jobAttempt)",
-             "branchName": "$(build.sourceBranchName)"
+          "version":"1.1"
           }
-        artifactToolIdExists: true
-- stage: registerPackage
-  jobs:
-  - job: Register_Package
-    pool:
-      name: server
-    steps:
-    - task: ServiceNow-DevOps-Server-Package-Registration@1
-      inputs:
-        connectedServiceName: 'dev271065-Dev271065-ServiceNow DevOps Service Connection'
-        packageRegistrationPayload: |
-          {
-              "name": "app-devops-change-velocity-cicd.war",
-              "artifacts": [
-              {
-                  "name": "app-devops-cicd.jar",
-                  "repositoryName": "npj96/NJ-DemoRepo",
-                  "version": "1.$(build.buildId)",
-                  "pipelineName":"$(system.teamProject)/$(build.definitionName)",
-                  "taskExecutionNumber":"$(build.buildId)",
-                  "stageName":"$(system.jobDisplayName)",
-            "attemptNumber":"$(system.jobAttempt)",
-                "branchName":"$(build.sourceBranchName)"
-              }],
-              "pipelineName":"$(system.teamProject)/$(build.definitionName)",
-              "taskExecutionNumber":"$(build.buildId)",
-              "stageName":"$(system.jobDisplayName)",
-           "attemptNumber":"$(system.jobAttempt)",
-              "branchName":"$(build.sourceBranchName)"
-          }
-        artifactToolIdExists: true
 - stage: Prod
   jobs:
   - job: Final_Deployment
