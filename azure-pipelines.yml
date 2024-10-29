@@ -37,7 +37,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - script: echo "The pipeline name is "$(system.teamProject)-----$(build.definitionName)"
+    - script: echo "The pipeline name is $(build.definitionName)"
     - script: echo "The stage name is $(system.jobDisplayName)"
     - script: echo "The attempt is $(system.jobAttempt)"
     - script: echo "The branch name is $(build.sourceBranchName)"
