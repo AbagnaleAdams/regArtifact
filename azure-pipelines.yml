@@ -50,9 +50,9 @@ stages:
                   "name": "sa-web.jar",
                   "version": "1.$(build.buildId)",
                   "semanticVersion": "1.$(build.buildId).0",
-                  "repositoryName": "Dev271065" 
-                },
-                "pipelineName": "$(system.teamProject)/$(build.definitionName)"]
+                  "repositoryName": "Dev271065"
+                  "pipelineName": "$(system.teamProject)/$(build.definitionName)"
+                  }]
                 
             
 - stage: Prod
