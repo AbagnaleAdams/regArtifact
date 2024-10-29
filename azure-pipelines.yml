@@ -52,7 +52,7 @@ stages:
                   "semanticVersion": "1.$(build.buildId).0",
                   "repositoryName": "Dev271065"
                   "pipelineName": "$(system.teamProject)/$(build.definitionName)"
-                  }]
+                  }]}
                 
             
 - stage: Prod
