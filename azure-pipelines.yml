@@ -37,8 +37,10 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - script: echo "The version is 1.$(build.buildId)"
-    - script: echo "The semantic version is 1.$(build.buildId).0"
+    - script: echo "The pipeline name is "$(system.teamProject)/$(build.definitionName)"
+    - script: echo "The stage name is $(system.jobDisplayName)"
+    - script: echo "The attempt is $(system.jobAttempt)"
+    - script: echo "The branch name is $(build.sourceBranchName)"
     - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
       inputs:
         connectedServiceName: 'dev271065-Dev271065-ServiceNow DevOps Service Connection'
