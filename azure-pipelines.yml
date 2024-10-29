@@ -37,6 +37,8 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    - script: echo "The build is $(build.buildId)"
+    - script: echo "The build number is $(Build.BuildNumber)"
     - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
       inputs:
         connectedServiceName: 'dev271065-Dev271065-ServiceNow DevOps Service Connection'
