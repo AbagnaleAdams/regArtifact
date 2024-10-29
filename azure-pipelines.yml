@@ -46,10 +46,8 @@ stages:
                 {"artifacts": [
                   {
                   "name": "sa-web.jar",
-                  "version": "3.1",
-                  "semanticVersion": "3.1.0",
-                  #"version": "1.$(build.buildId)",
-                  #"semanticVersion": "1.$(build.buildId).0",
+                  "version": "1.$(build.buildId)",
+                  "semanticVersion": "1.$(build.buildId).0",
                   "repositoryName": "Dev271065" 
                 }]}
             
