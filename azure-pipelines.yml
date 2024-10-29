@@ -51,9 +51,9 @@ stages:
                   "version": "1.$(build.buildId)",
                   "semanticVersion": "1.$(build.buildId).0",
                   "repositoryName": "Dev271065" 
-                }]
-                "pipelineName": "$(system.teamProject)/$(build.definitionName)"
-                }
+                },
+                "pipelineName": "$(system.teamProject)/$(build.definitionName)"]
+                
             
 - stage: Prod
   jobs:
