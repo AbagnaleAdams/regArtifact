@@ -29,7 +29,7 @@ stages:
   - job: Regression_Test
     steps:
     - task: CmdLine@2
-      inputs:
+      inputs: 
         script: echo "This is the UAT testing phase of the request."
 - stage: registerArtifact
   jobs:
